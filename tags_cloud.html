@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}{{ config.title }} - {{ lang('tags') }}{% endblock %}
+
+{% block content %}
+{%if  all_tags %}
+	<div class="blog-post">
+		<h2 class="blog-post-title">{{ lang('tags') }}：</h2>
+		<div id="tagCloud-container">
+		</div>
+	</div>
+	<script>
+		var word_array = [
+			{% for tag,weight in all_tags %}
+				{text: "{{ tag }}", weight: {{ weight*10 }}, link: "/tags/{{ tag }}"},
+			{% endfor %}
+		];
+		$("#tagCloud-container").jQCloud(word_array);
+	</script>
+{% else %}
+	{% include 'include/posts_list.html' %}
+{% endif %}
+{% endblock %}
+
+

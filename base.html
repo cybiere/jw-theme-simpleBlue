@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="../../favicon.ico">
+
+		<title>{% block title %}{{ config.title }} {% endblock %}</title>
+
+		<link href="/templates/{{config.template}}/css/highlight.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+		<!-- Bootstrap core CSS -->
+		<link href="/templates/tictech/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="/templates/tictech/css/blog.css" rel="stylesheet">
+
+	  <script src="/templates/tictech/js/jquery.min.js"></script>
+	  <script src="/templates/tictech/js/jqcloud-1.0.4.min.js"></script>
+		<script src="/templates/tictech/js/ie-emulation-modes-warning.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+	  <script src="/templates/tictech/js/html5shiv.min.js"></script>
+	  <script src="/templates/tictech/js/respond.min.js"></script>
+	  <![endif]-->
+	  {{ config.mathjax|raw }}
+
+	</head>
+
+	<body>
+
+		<div class="blog-masthead">
+			<div class="maincontainer">
+				<nav class="blog-nav col-lg-offset-3">
+					<a class="blog-nav-item active" id="home" href="/">{{ lang('home') }}</a>
+					<a class="blog-nav-item" id="tags" href="/tags">{{ lang('tags') }}</a>
+					<a class="blog-nav-item" id="archive" href="/archive">{{ lang('archive') }}</a>
+					<a class="blog-nav-item" href="/feed">RSS</a>
+				</nav>
+			</div>
+		</div>
+
+		<div class="maincontainer">
+
+			<div class="row">
+				<div class="col-lg-3 blog-sidebar">
+					<div class="blog-header sidebar-module">
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-4">
+								<img src="{{ config.avatar }}" class="img-responsive img-responsive-rounded img-small"/>
+							</div>
+						</div>
+						{% if config.title %}
+						<h1 class="blog-title"><a href="/">{{ config.title }}</a></h1>
+						{% endif %}
+						{% if config.intro %}
+						<p class="lead blog-description">{{ config.intro }}</p>
+						{% endif %}
+					</div>
+
+					{% if config.aboutme %}
+					<div class="sidebar-module sidebar-module-inset">
+						<h4>{{ lang('aboutme') }}</h4>
+						<p>{{ config.aboutme }}</p>
+					</div>
+					{% endif %}
+				</div><!-- /.blog-sidebar -->
+
+
+				<div class="col-md-9 blog-main">
+					{% block content %}
+					{% endblock %}
+				</div><!-- /.blog-main -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+
+
+		{% include 'include/footer.html' %}
+
+		<!-- Bootstrap core JavaScript
+	  ================================================== -->
+	  <!-- Placed at the end of the document so the pages load faster -->
+	  <script>
+		var url = document.URL;
+		if(url.match(/tag/)){
+			$(".blog-nav-item").removeClass("active");
+			$("#tags").addClass("active");		
+		}else if(url.match(/archive/)){
+			$(".blog-nav-item").removeClass("active");
+			$("#archive").addClass("active");		
+
+		}
+	  </script>
+
+	  <script src="/templates/tictech/js/bootstrap.min.js"></script>
+	  <script src="/templates/tictech/js/docs.min.js"></script>
+	  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	  <script src="/templates/tictech/js/ie10-viewport-bug-workaround.js"></script>
+	  {% if config.highlight %}      
+		  <link rel="stylesheet" href="/styles/highlight/styles/{{config.highlight}}.css">
+		  <script src="/styles/highlight/highlight.pack.js"></script>
+		  <script>hljs.initHighlightingOnLoad();</script>
+	  {% endif %}
+	</body>
+</html>
