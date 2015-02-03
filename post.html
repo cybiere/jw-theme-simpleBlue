@@ -4,7 +4,7 @@
 {% block content %}
 <div class="blog-post">                                                  
 	<h2 class="blog-post-title">{{ post.title }}</h2>
-	<p class="blog-post-meta">{{ post.date | date('d/m/Y') }} by {{config.author}}</p>
+	<p class="blog-post-meta">{{ post.date | date('d/m/Y') }} by {{post.author}}</p>
 
 	{{ post.html|raw }}
 
