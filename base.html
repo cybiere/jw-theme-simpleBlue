@@ -64,7 +64,7 @@
 					{% if config.aboutme %}
 					<div class="sidebar-module sidebar-module-inset">
 						<h4>{{ lang('aboutme') }}</h4>
-						<p>{{ config.aboutme }}</p>
+						<p>{{ config.aboutme | raw }}</p>
 					</div>
 					{% endif %}
 				</div><!-- /.blog-sidebar -->
