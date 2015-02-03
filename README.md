@@ -8,7 +8,7 @@ You can see this theme in action on [tictech](http://tictech.info).
 
 ## Tag Cloud :
 
-The tag cloud uses lucaong's [jQCloud](https://github.com/lucaong/jQCloud). To have various tag font sizes, corresponding to the number of uses of the tag, you must tweak a bit JustWriting core as described [here](https://github.com/hjue/JustWriting/issues/50)
+The tag cloud uses lucaong's [jQCloud](https://github.com/lucaong/jQCloud).
 
 ## Suggestions : 
 
