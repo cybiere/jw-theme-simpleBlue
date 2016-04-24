@@ -1,9 +1,5 @@
-/*
- * Globals
- */
-
 body {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: Georgia, "Helvetica", Arial, sans-serif;
 	color: #555;
 }
 
@@ -20,10 +16,6 @@ h6, .h6 {
 }
 
 
-/*
- * Override Bootstrap's default container.
- */
-
 @media (min-width: 1200px) {
 	.container {
 		width: 970px;
@@ -31,17 +23,12 @@ h6, .h6 {
 }
 
 
-/*
- * Masthead for nav
- */
-
 .blog-masthead {
 	background-color: #428bca;
 	-webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 }
 
-/* Nav links */
 .blog-nav-item {
 	position: relative;
 	display: inline-block;
@@ -55,7 +42,6 @@ h6, .h6 {
 	text-decoration: none;
 }
 
-/* Active state gets a caret at the bottom */
 .blog-nav .active {
 	color: #fff;
 }
@@ -74,9 +60,6 @@ h6, .h6 {
 }
 
 
-/*
- * Blog name and description
- */
 
 .blog-header {
 	padding-top: 20px;
@@ -96,21 +79,20 @@ h6, .h6 {
 	font-size: 20px;
 	color: #999;
 }
+.blog-content {
+	text-align: justify;
+}
+
 
 .maincontainer{
-	margin : 0 50px;
+	margin : 0 30px;
 }
-/*
- * Main column and sidebar layout
- */
-
 .blog-main {
-	margin-top : 20px;
+	margin-top : 10px;
 	font-size: 18px;
 	line-height: 1.5;
 }
 
-/* Sidebar modules for boxing content */
 .blog-sidebar {
 	text-align : center;
 }
@@ -130,25 +112,16 @@ h6, .h6 {
 }
 
 
-/* Pagination */
 .pager {
 	margin-bottom: 60px;
-	text-align: right;
 }
 .pager > li > a {
 	width: 140px;
 	padding: 10px 20px;
-	text-align: center;
-	border-radius: 30px;
 }
 
-
-/*
- * Blog posts
- */
-
 .blog-post {
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 .blog-post-title {
 	margin-bottom: 5px;
@@ -172,9 +145,6 @@ h6, .h6 {
 	border-top : 1px #ddd dashed;
 }
 
-/*
- * Tag Cloud
- */
 div#tagCloud-container {
 	font-family: "Helvetica", "Arial", sans-serif;
 	overflow: hidden;
@@ -223,9 +193,6 @@ div#tagCloud-container span.w1 {
 	width : 100%;
 	height : 400px;
 }
-/*
- * Footer
- */
 
 .blog-footer {
 	padding: 40px 0;
@@ -236,11 +203,106 @@ div#tagCloud-container span.w1 {
 }
 .blog-footer p:last-child {
 	margin-bottom: 0;
-}
+} 
 
-/*
- * Archives
- */
 .archives-inner {
 	margin-left : 50px;
 }
+.pagin{
+	margin-bottom : 20px;
+}
+.pagin a {
+	font-weight: 500;
+/*	color: #bcccda;*/
+	text-align:center;
+	padding : 5px;
+	display:inline-block;
+	width:100%;
+}
+.pagin a.prev {
+	text-align:left;
+}
+.pagin a.next {
+	text-align:right;
+}
+.pagin a:hover,.pagin a:focus {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+.toc{
+	border : 1px #ddd solid;
+	float:right;
+}
+.toc::before{
+    content: 'Table des matières :';
+	border-bottom : 1px #ddd solid;
+	background : #f5f5f5;
+	display:block;
+	padding : 5px;
+}
+.toc ul{
+	margin:0;
+	padding:0;
+}
+.toc ul li{
+	list-style-type:none;
+}
+.toc ul li a{
+	display:block;
+	border-bottom : 1px #ddd dotted;
+	padding: 3px 5px;
+}
+.toc ul li a:hover{
+	text-decoration : none;
+	background : #fafafa;
+}
+.toc ul li:last-child a{
+	border-bottom : 0px;
+}
+
+
+@media screen and (max-width:1040px){#sub-nav .social{float:none;margin-right:0}
+#sub-nav .social a:last-of-type{margin-right:0}
+}
+#sub-nav .social a{-webkit-border-radius:50%;-moz-border-radius:50%;-ms-border-radius:50%;-o-border-radius:50%;border-radius:50%;display:-moz-inline-stack;display:inline-block;vertical-align:middle;*vertical-align:auto;zoom:1;*display:inline;text-indent:-9999px;margin:0 10px 10px 0;opacity:0.5;width:28px;height:28px;-webkit-transition:0.3s;-moz-transition:0.3s;-o-transition:0.3s;transition:0.3s}
+#sub-nav .social a:hover{opacity:1}
+#sub-nav .social a.facebook{background:url('../images/social/facebook.png') center no-repeat #3b5998;border:1px solid #3b5998}
+#sub-nav .social a.facebook:hover{border:1px solid #2d4373}
+#sub-nav .social a.google{background:url('../images/social/google.png') center no-repeat #c83d20;border:1px solid #c83d20}
+#sub-nav .social a.google:hover{border:1px solid #9c3019}
+#sub-nav .social a.twitter{background:url('../images/social/twitter.png') center no-repeat #55cff8;border:1px solid #55cff8}
+#sub-nav .social a.twitter:hover{border:1px solid #24c1f6}
+#sub-nav .social a.github{background:url('../images/social/github.png') center no-repeat #afb6ca;border:1px solid #afb6ca}
+#sub-nav .social a.github:hover{border:1px solid #909ab6}
+#sub-nav .social a.linkedin{background:url('../images/social/linkedin.png') center no-repeat #005a87;border:1px solid #005a87}
+#sub-nav .social a.linkedin:hover{border:1px solid #003854}
+#sub-nav .social a.pinterest{background:url('../images/social/pinterest.png') center no-repeat #be4037;border:1px solid #be4037}
+#sub-nav .social a.pinterest:hover{border:1px solid #96332c}
+#sub-nav .social a.delicious{background:url('../images/social/delicious.png') center no-repeat #3271cb;border:1px solid #3271cb}
+#sub-nav .social a.delicious:hover{border:1px solid #285aa2}
+#sub-nav .social a.pinboard{background:url('../images/social/pinboard.png') center no-repeat #0066c8;border:1px solid #3a729f}
+#sub-nav .social a.pinboard:hover{border:1px solid #0052cc}
+#sub-nav .social a.instagram{background:url('../images/social/instagram.png') center no-repeat #afb6ca;border:1px solid #afb6ca}
+#sub-nav .social a.instagram:hover{border:1px solid #61210b}
+#sub-nav .social a.weibo{background:url('../images/social/weibo.png') center no-repeat #b40404;border:1px solid #b40404}
+#sub-nav .social a.weibo:hover{border:1px solid #eb182c}
+#sub-nav .social a.qq{background:url('../images/social/qq.png') center no-repeat #128abc;border:1px solid #128abc}
+#sub-nav .social a.qq:hover{border:1px solid #519cba}
+#sub-nav .social a.qq2{background:url('../images/social/qq2.png') center no-repeat #111111;border:1px solid #111111}
+#sub-nav .social a.qq2:hover{border:1px solid #313131}
+#sub-nav .social a.qqqun{background:url('../images/social/qqqun.png') center no-repeat #111111;border:1px solid #111111}
+#sub-nav .social a.qqqun:hover{border:1px solid #313131}
+#sub-nav .social a.weixin{background:url('../images/social/weixin.png') center no-repeat #1d8c0f;border:1px solid #1d8c0f}
+#sub-nav .social a.weixin:hover{border:1px solid #328d26}
+#sub-nav .social a.fanfou{background:url('../images/social/fanfou.png') center no-repeat #00a0d0;border:1px solid #00a0d0}
+#sub-nav .social a.fanfou:hover{border:1px solid #00c3f3}
+#sub-nav .social a.zhihu{background:url('../images/social/zhihu.png') center no-repeat #177fc3;border:1px solid #177fc3}
+#sub-nav .social a.zhihu:hover{border:1px solid #31a5e5}
+#sub-nav .social a.douban{background:url('../images/social/douban.png') center no-repeat #088a08;border:1px solid #088a08}
+#sub-nav .social a.douban:hover{border:1px solid #007711}
+#sub-nav .social a.email{background:url('../images/social/email.png') center no-repeat #f89a1e;border:1px solid #f89a1e}
+#sub-nav .social a.email:hover{border:1px solid #f89a1e}
+#sub-nav .social a.rss{background:url('../images/social/rss.png') center no-repeat #ef7522;border:1px solid #ef7522}
+#sub-nav .social a.rss:hover{border:1px solid #cf5d0f}

@@ -3,6 +3,7 @@
 
 {% block content %}
 {%if  all_tags %}
+	<script type="text/javascript" src="/templates/{{config.template}}/js/jqcloud.min.js"></script>      
 	<div class="blog-post">
 		<h2 class="blog-post-title">{{ lang('tags') }}：</h2>
 		<div id="tagCloud-container">

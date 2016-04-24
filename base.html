@@ -1,37 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<link rel="icon" href="../../favicon.ico">
-
 		<title>{% block title %}{{ config.title }} {% endblock %}</title>
 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="/favicon.png" rel="shortcut icon">
+
+		<link href="/templates/{{config.template}}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="/templates/{{config.template}}/css/blog.css" rel="stylesheet" type="text/css">
+
+		<script type="text/javascript" src="/templates/{{config.template}}/js/jquery.min.js"></script>    
+		<script type="text/javascript" src="/templates/{{config.template}}/js/bootstrap.min.js"></script>    
+
+		{% if config.highlight %}      
 		<link href="/templates/{{config.template}}/css/highlight.css" media="screen, projection" rel="stylesheet" type="text/css">
-
-		<!-- Bootstrap core CSS -->
-		<link href="/templates/jw-theme-simpleBlue/css/bootstrap.min.css" rel="stylesheet">
-
-		<!-- Custom styles for this template -->
-		<link href="/templates/jw-theme-simpleBlue/css/blog.css" rel="stylesheet">
-
-	  <script src="/templates/jw-theme-simpleBlue/js/jquery.min.js"></script>
-	  <script src="/templates/jw-theme-simpleBlue/js/jqcloud-1.0.4.min.js"></script>
-		<script src="/templates/jw-theme-simpleBlue/js/ie-emulation-modes-warning.js"></script>
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-	  <script src="/templates/jw-theme-simpleBlue/js/html5shiv.min.js"></script>
-	  <script src="/templates/jw-theme-simpleBlue/js/respond.min.js"></script>
-	  <![endif]-->
-	  {{ config.mathjax|raw }}
-
+		<link rel="stylesheet" href="/styles/highlight/styles/{{config.highlight}}.css">
+		<script src="/styles/highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		{% endif %}
 	</head>
-
 	<body>
-
 		<div class="blog-masthead">
 			<div class="maincontainer">
 				<nav class="blog-nav col-lg-offset-3">
@@ -44,67 +34,75 @@
 		</div>
 
 		<div class="maincontainer">
-
 			<div class="row">
-				<div class="col-lg-3 blog-sidebar">
+				<div class="col-md-3 col-sm-4 col-xs-12 blog-sidebar">
 					<div class="blog-header sidebar-module">
 						<div class="row">
-							<div class="col-xs-4 col-xs-offset-4">
-								<img src="{{ config.avatar }}" class="img-responsive img-responsive-rounded img-small"/>
+							<div class="col-md-8 col-md-offset-2 col-xs-5 col-sm-6 col-sm-offset-3 col-xs-offset-1">
+								<img src="{{ config.avatar }}" class="img-responsive img-circle"/>
+							</div>
+							<div class="col-md-8 col-md-offset-2 col-xs-5 col-sm-8 col-sm-offset-2">
+								<h1 class="blog-title"><a href="/">{{ config.title }}</a></h1>
+								<p class="lead blog-description">{{ config.intro }}</p>
 							</div>
 						</div>
-						{% if config.title %}
-						<h1 class="blog-title"><a href="/">{{ config.title }}</a></h1>
-						{% endif %}
-						{% if config.intro %}
-						<p class="lead blog-description">{{ config.intro }}</p>
-						{% endif %}
 					</div>
-
 					{% if config.aboutme %}
 					<div class="sidebar-module sidebar-module-inset">
 						<h4>{{ lang('aboutme') }}</h4>
 						<p>{{ config.aboutme | raw }}</p>
+						<nav id="sub-nav">
+							<div class="social">
+								{% if config.github %}
+								<a class="github" href="{{ config.github }}" title="GitHub" target="_blank">GitHub</a>
+								{% endif %}
+								{% if config.twitter %}
+								<a class="twitter" href="{{ config.twitter }}" title="Twitter" target="_blank">Twitter</a>
+								{% endif %}
+								{% if config.rss %}
+								<a class="rss" href="{{ config.rss }}" title="RSS" target="_blank">RSS</a>
+								{% endif %}
+								{% if config.facebook %}
+								<a class="facebook" href="{{ config.facebook }}" title="Facebook" target="_blank">Facebook</a>
+								{% endif %}
+								{% if config.email %}
+								<a class="email" href="{{ config.email }}" title="e-Mail" target="_blank">e-Mail</a>
+								{% endif %}
+							</div>
+						</nav>
 					</div>
 					{% endif %}
-				</div><!-- /.blog-sidebar -->
+				</div>
 
-
-				<div class="col-md-9 blog-main">
+				<div class="col-md-9 col-sm-8 col-xs-12 blog-main">
 					{% block content %}
 					{% endblock %}
 				</div><!-- /.blog-main -->
+			</div>
+		</div><!-- /.maincontainer -->
+		<!--
+	  <div class="blog-masthead">
+	  <div class="maincontainer">
+	  {% block paginator %}
+	  {% endblock %}
+	  <nav class="blog-nav col-lg-offset-3">
+	  <a class="blog-nav-item" href="/feed">RSS</a>
+	  </nav>
+	  </div>
+	  </div>-->
+	  {% include 'include/footer.html' %}
 
-			</div><!-- /.row -->
-
-		</div><!-- /.container -->
-
-
-		{% include 'include/footer.html' %}
-
-		<!-- Bootstrap core JavaScript
-	  ================================================== -->
-	  <!-- Placed at the end of the document so the pages load faster -->
 	  <script>
-		var url = document.URL;
-		if(url.match(/tag/)){
-			$(".blog-nav-item").removeClass("active");
-			$("#tags").addClass("active");		
-		}else if(url.match(/archive/)){
-			$(".blog-nav-item").removeClass("active");
-			$("#archive").addClass("active");		
+var url = document.URL;
+if(url.match(/tag/)){
+	$(".blog-nav-item").removeClass("active");
+	$("#tags").addClass("active");		
+}else if(url.match(/archive/)){
+	$(".blog-nav-item").removeClass("active");
+	$("#archive").addClass("active");		
 
-		}
+}
 	  </script>
-
-	  <script src="/templates/jw-theme-simpleBlue/js/bootstrap.min.js"></script>
-	  <script src="/templates/jw-theme-simpleBlue/js/docs.min.js"></script>
-	  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	  <script src="/templates/jw-theme-simpleBlue/js/ie10-viewport-bug-workaround.js"></script>
-	  {% if config.highlight %}      
-		  <link rel="stylesheet" href="/styles/highlight/styles/{{config.highlight}}.css">
-		  <script src="/styles/highlight/highlight.pack.js"></script>
-		  <script>hljs.initHighlightingOnLoad();</script>
-	  {% endif %}
 	</body>
 </html>
+

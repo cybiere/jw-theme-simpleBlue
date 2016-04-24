@@ -1,13 +1,21 @@
 {% if paginator.has_previous or  paginator.has_next %}
-<nav>
-	<ul class="pager">
-	    {% if paginator.has_previous %}
-			<li><a class="prev" href="{{ paginator.previous_page_url }}">{{ lang('prev') }}</a></li>
-	    {% endif %}
-		<li><a href="/archive">{{ lang('archive') }}</a></li>
+<div class="pagin row">
+	<div class="col-xs-4 col-sm-2">
+		{% if paginator.has_previous %}
+		<a class="prev" href="{{ paginator.previous_page_url }}" >&larr; {{ lang('prev') }}</a>
+		{% endif %}
+	</div>
+	<div class="col-sm-3">
+	</div>
+	<div class="col-xs-4 col-sm-2">
+		<a href="/archive" >{{ lang('archive') }}</a>
+	</div>
+	<div class="col-sm-3">
+	</div>
+	<div class="col-xs-4 col-sm-2">
 		{% if paginator.has_next %}
-			<li><a class="next" href="{{ paginator.next_page_url}}">{{ lang('next') }}</a></li>
-	    {% endif %}
-	</ul>
-</nav>
+		<a class="next" href="{{ paginator.next_page_url}}" >{{ lang('next') }} &rarr;</a>
+		{% endif %}
+	</div>
+</div>
 {% endif %}

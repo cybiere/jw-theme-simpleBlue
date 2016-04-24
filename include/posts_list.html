@@ -1,5 +1,5 @@
 {% for post in posts %}
-	<div class="blog-post">
+	<article class="blog-post">
 		<h2 class="blog-post-title"><a href="{{post.link}}">{{ post.title }}</a></h2>
 		<p class="blog-post-meta">
 			{{ post.date | date('d/m/Y') }} by {{post.author}} - 
@@ -14,7 +14,7 @@
 		<div class="blog-post-more">
 			<a href="{{post.link}}">{{ lang('readmore') }} &#8594;</a>
 		</div>
-	</div>
+	</article>
 {% endfor %}
 
 {% include 'include/paginator.html' %}

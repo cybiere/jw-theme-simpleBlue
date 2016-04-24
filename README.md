@@ -15,4 +15,4 @@ The tag cloud uses lucaong's [jQCloud](https://github.com/lucaong/jQCloud).
 If you have any suggestion for improvements, feel free to tell me [there](https://github.com/ncosnard/jw-theme-simpleBlue/issues)
 
 ## Licence :
-Licence is provided in LICENCE file.
+This theme is provided under [BeerWare Licence](https://en.wikipedia.org/wiki/Beerware).
