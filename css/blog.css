@@ -230,10 +230,13 @@ div#tagCloud-container span.w1 {
 	text-decoration: none;
 }
 
-
 .toc{
 	border : 1px #ddd solid;
-	float:right;
+}
+@media (min-width: 768px) {
+	.toc{
+		float:right;
+	}
 }
 .toc::before{
     content: 'Table des matières :';
