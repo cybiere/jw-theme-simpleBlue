@@ -1,6 +1,6 @@
 body {
-	font-family: Georgia, "Helvetica", Arial, sans-serif;
-	color: #555;
+	color: #333;
+	text-align:justify;
 }
 
 h1, .h1,
@@ -232,6 +232,8 @@ div#tagCloud-container span.w1 {
 
 .toc{
 	border : 1px #ddd solid;
+	margin-left : 10px;
+	margin-bottom: 5px;
 }
 @media (min-width: 768px) {
 	.toc{
